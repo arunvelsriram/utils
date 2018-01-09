@@ -1,5 +1,4 @@
-FROM ubuntu
+FROM alpine
 
-RUN apt-get update \
-  && apt-get -y install curl wget dnsutils iputils-ping telnet postgresql
-RUN curl -sSL https://get.docker.com/ | sh
+RUN apk update \
+  && apk add curl wget bind-tools iputils postgresql docker
