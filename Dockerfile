@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:16.04
 
 RUN apt-get update \
   && apt-get -y install curl wget dnsutils iputils-ping telnet postgresql
