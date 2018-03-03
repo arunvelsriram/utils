@@ -1,5 +1,4 @@
-FROM ubuntu:16.04
+FROM alpine:3.7
 
-RUN apt-get update \
-  && apt-get -y install curl wget dnsutils iputils-ping telnet postgresql jq
-RUN curl -sSL https://get.docker.com/ | sh
+RUN apk update \
+  && apk add curl bind-tools postgresql-client jq docker busybox-extras
