@@ -1,9 +1,10 @@
 # utils
+
 Docker image with tools like curl, wget, ping, nslookup, dig, psql etc.
 
 ## Use Case
 
-When running a cluster ([Kubernetes](https://kubernetes.io/) in my case) you might want to test the connectivity between containers, connectivity to a private docker registry and artifactory, Postgres connection, etc. Your application and application related containers won't be having tools like curl, ping, psql client etc. So you can pull this image and use the tools to quickly run the necessary tests.
+When running a cluster ([Kubernetes](https://kubernetes.io/) in my case) you might want to test the connectivity between containers, connectivity to a private docker registry and artifactory, Postgres connection, etc. Your application containers won't be having tools like curl, ping, psql client etc. So you can pull this image and use the available tools to test your application.
 
 For example, in Kubernetes one can do:
 
