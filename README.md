@@ -1,6 +1,6 @@
 # utils
 
-Docker image with tools like curl, wget, ping, nslookup, dig, psql etc.
+Docker image with tools like curl, wget, ping, nslookup, dig, psql, mysql etc.
 
 ## Use Case
 
