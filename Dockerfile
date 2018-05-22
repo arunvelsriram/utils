@@ -12,3 +12,4 @@ RUN apk update \
   vim \
   bash
 
+ENTRYPOINT ["/bin/bash"]
