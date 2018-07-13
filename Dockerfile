@@ -11,6 +11,7 @@ RUN apk update \
   redis \
   vim \
   mongodb \
+  mongodb-tools\
   bash
 
 ENTRYPOINT ["/bin/bash"]
