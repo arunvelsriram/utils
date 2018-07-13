@@ -10,6 +10,7 @@ RUN apk update \
   mysql-client \
   redis \
   vim \
+  mongodb \
   bash
 
 ENTRYPOINT ["/bin/bash"]
