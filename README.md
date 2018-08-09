@@ -4,12 +4,12 @@ Docker image with tools like curl, wget, ping, nslookup, dig, psql, mysql etc.
 
 ## Use Case
 
-When running a cluster ([Kubernetes](https://kubernetes.io/) in my case) you might want to test the connectivity between containers, connectivity to a private docker registry and artifactory, Postgres connection, etc. Your application containers won't be having tools like curl, ping, psql client etc. So you can pull this image and use the available tools to test your application.
+When using containers you might want to test the connectivity between the containers. Your application containers won't be having tools like curl, ping, psql client etc. So you can start a one-off container using this image and test your application.
 
-For example, in Kubernetes one can do:
+For example, to run a one-off container in Kubernetes:
 
 ```
-kubectl run utils --rm -it --image arunvelsriram/utils bash
+kubectl run --rm utils -it --image arunvelsriram/utils bash
 
 # You will be seeing a bash prompt
 $ psql -h hostname -U test -d test
@@ -18,9 +18,7 @@ $ psql -h hostname -U test -d test
 $ exit
 ```
 
-to quickly spawn a `deployment` called `utils` and use the tools provided by the image.
-
-Once you `exit` from `bash`, the `deployment` will be deleted from the cluster automatically.
+**Note:** `--rm` option will delete the `deployment` and related `pod` after exiting from the container. Skip `--rm` to preserve the `deployment` and related `pod` so that you can exec in to the `pod` and test your application any time.
 
 ## General Usage
 
