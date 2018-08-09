@@ -5,3 +5,7 @@ services:
 
 script:
   - docker build -t arunvelsriram/utils .
+
+deploy:
+  provider: script
+  script: docker_push
