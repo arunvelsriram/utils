@@ -1,4 +1,4 @@
-# utils
+# utils [![Build Status](https://travis-ci.org/arunvelsriram/utils.svg?branch=master)](https://travis-ci.org/arunvelsriram/utils)
 
 Docker image with tools like curl, wget, ping, nslookup, dig, psql, mysql etc.
 
