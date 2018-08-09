@@ -8,4 +8,4 @@ script:
 
 deploy:
   provider: script
-  script: docker_push
+  script: docker-push
