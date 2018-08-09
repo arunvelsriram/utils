@@ -12,6 +12,7 @@ RUN apk update \
   vim \
   mongodb \
   mongodb-tools\
-  bash
+  bash \
+  httpie
 
 ENTRYPOINT ["/bin/bash"]
