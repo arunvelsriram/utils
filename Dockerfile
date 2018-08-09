@@ -1,18 +1,16 @@
-FROM alpine:3.7
+FROM ubuntu:trusty
 
-RUN apk update \
-&& apk add curl \
-  bind-tools \
-  postgresql-client \
-  jq \
-  docker \
-  busybox-extras \
-  mysql-client \
-  redis \
-  vim \
-  mongodb \
-  mongodb-tools\
-  bash \
-  httpie
-
-ENTRYPOINT ["/bin/bash"]
+RUN apt-get update \
+&& apt-get install --yes --force-yes \
+    curl \
+    dnsutils \
+    httpie \
+    iputils-ping \
+    jq \
+    mongodb-clients \
+    mysql-client \
+    net-tools \
+    postgresql-client \
+    redis-tools \
+    telnet \
+    vim
