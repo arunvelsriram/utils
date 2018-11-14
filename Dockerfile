@@ -17,4 +17,4 @@ RUN apt-get update \
     rabbitmq-server
 
 RUN curl -O https://raw.githubusercontent.com/rabbitmq/rabbitmq-management/v3.7.8/bin/rabbitmqadmin && \
-    mv rabbitmqadmin /usr/local/bin/ && chmod 755 /usr/local/bin/rabbitmqadmin
+    mv rabbitmqadmin /usr/local/bin/ && chmod +x /usr/local/bin/rabbitmqadmin
