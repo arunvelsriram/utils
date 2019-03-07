@@ -14,7 +14,13 @@ RUN apt-get update \
     redis-tools \
     telnet \
     vim \
-    rabbitmq-server
+    rabbitmq-server \
+    apt-transport-https
+
+RUN curl -sL https://repos.influxdata.com/influxdb.key | apt-key add -
+RUN sh /etc/lsb-release
+RUN echo "deb https://repos.influxdata.com/ubuntu trusty stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+RUN apt-get update && apt-get install influxdb --yes --force-yes
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
