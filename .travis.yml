@@ -3,6 +3,8 @@ services:
 - docker
 addons:
   apt:
+    sources:
+    - duggan/bats
     packages:
     - bats
 script:
