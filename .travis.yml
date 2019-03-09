@@ -3,7 +3,7 @@ services:
 - docker
 before_install:
 - git clone https://github.com/bats-core/bats-core.git
-- ./bats-core/install.sh /usr/local
+- sudo ./bats-core/install.sh /usr/local
 script:
 - docker build -t arunvelsriram/utils -t utils-test .
 - bats test/test.bats
