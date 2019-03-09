@@ -2,9 +2,8 @@ sudo: required
 services:
 - docker
 before_install:
-- sudo add-apt-repository --yes ppa:duggan/bats
-- sudo apt-get update
-- sudo apt-get install bats
+- git clone https://github.com/bats-core/bats-core.git
+- ./bats-core/install.sh /usr/local
 script:
 - docker build -t arunvelsriram/utils -t utils-test .
 - bats test/test.bats
