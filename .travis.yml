@@ -1,8 +1,13 @@
 sudo: required
 services:
 - docker
+addons:
+  apt:
+    packages:
+    - bats
 script:
 - docker build -t arunvelsriram/utils .
+- bats test/test.bats
 deploy:
   provider: script
   script: bash docker-push
