@@ -1,12 +1,10 @@
 sudo: required
 services:
 - docker
-addons:
-  apt:
-    sources:
-    - duggan/bats
-    packages:
-    - bats
+before_install:
+- sudo add-apt-repository --yes ppa:duggan/bats
+- sudo apt-get update
+- sudo apt-get install bats
 script:
 - docker build -t arunvelsriram/utils .
 - bats test/test.bats
