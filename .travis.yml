@@ -6,7 +6,7 @@ before_install:
 - sudo apt-get update
 - sudo apt-get install bats
 script:
-- docker build -t arunvelsriram/utils .
+- docker build -t arunvelsriram/utils -t utils-test .
 - bats test/test.bats
 deploy:
   provider: script
