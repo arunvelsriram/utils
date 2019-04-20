@@ -5,6 +5,9 @@ RUN apt-get update \
     locales \
     curl \
     dnsutils \
+    netcat-openbsd \
+    bind9-host \
+    swaks \
     httpie \
     iputils-ping \
     jq \
