@@ -85,3 +85,19 @@ load test_helper
 	run check_cmd "rabbitmqadmin"
 	[ "$status" -eq 0 ]
 }
+@test "swaks" {
+	run check_cmd "swaks"
+	[ "$status" -eq 0 ]
+}
+@test "netcat-openbsd" {
+	run check_cmd "nc"
+	[ "$status" -eq 0 ]
+}
+@test "wget" {
+	run check_cmd "wget"
+	[ "$status" -eq 0 ]
+}
+@test "bind9-host" {
+	run check_cmd "host"
+	[ "$status" -eq 0 ]
+}
