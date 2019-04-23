@@ -3,18 +3,22 @@ FROM ubuntu:bionic
 RUN apt-get update \
   && apt-get install --no-install-recommends --yes --force-yes  \
     locales \
+    bind9-host \
     curl \
     dnsutils \
     httpie \
     iputils-ping \
     jq \
+    netcat-openbsd \
     mongodb-clients \
     mysql-client \
     net-tools \
     postgresql-client \
     redis-tools \
+    swaks \
     telnet \
     vim \
+    wget \
     influxdb-client \
     rabbitmq-server
 
