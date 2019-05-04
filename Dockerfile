@@ -18,11 +18,12 @@ RUN apt-get update \
     swaks \
     telnet \
     vim \
+    nano \
     wget \
     influxdb-client \
     rabbitmq-server
 
-RUN curl -O https://raw.githubusercontent.com/rabbitmq/rabbitmq-management/v3.7.8/bin/rabbitmqadmin \
+RUN curl -O https://raw.githubusercontent.com/rabbitmq/rabbitmq-management/v3.7.14/bin/rabbitmqadmin \
   && mv rabbitmqadmin /usr/local/bin/ \
   && chmod +x /usr/local/bin/rabbitmqadmin
 
