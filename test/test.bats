@@ -101,3 +101,13 @@ load test_helper
 	run check_cmd "host"
 	[ "$status" -eq 0 ]
 }
+
+@test "pip" {
+	run check_cmd "pip"
+	[ "$status" -eq 0 ]
+}
+
+@test "cqlsh" {
+	run check_cmd "cqlsh"
+	[ "$status" -eq 0 ]
+}
