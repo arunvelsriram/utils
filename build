@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+docker build -t arunvelsriram/utils -t utils-test .
+bats test/test.bats
+

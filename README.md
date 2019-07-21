@@ -32,3 +32,11 @@ $ ifconfig
 ...
 $ exit
 ```
+
+## Contributing
+
+Build and run tests:
+
+```
+$ ./build
+```

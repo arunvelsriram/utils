@@ -5,8 +5,7 @@ before_install:
 - git clone https://github.com/bats-core/bats-core.git
 - sudo ./bats-core/install.sh /usr/local
 script:
-- docker build -t arunvelsriram/utils -t utils-test .
-- bats test/test.bats
+- ./build
 deploy:
   provider: script
   script: bash docker-push
