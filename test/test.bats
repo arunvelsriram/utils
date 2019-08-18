@@ -3,7 +3,7 @@
 load test_helper
 
 @test "curl" {
-  run check_cmd "psql"
+  run check_cmd "curl"
   [ "$status" -eq 0 ]
 }
 
