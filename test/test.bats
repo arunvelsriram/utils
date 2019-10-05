@@ -111,3 +111,8 @@ load test_helper
 	run check_cmd "cqlsh"
 	[ "$status" -eq 0 ]
 }
+
+@test "ssh" {
+	run check_cmd "ssh"
+	[ "$status" -eq 0 ]
+}

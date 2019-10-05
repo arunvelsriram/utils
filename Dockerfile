@@ -23,7 +23,8 @@ RUN apt-get update \
     influxdb-client \
     rabbitmq-server \
     python-setuptools \
-    python-pip
+    python-pip \
+    openssh-client
 
 RUN curl -O https://raw.githubusercontent.com/rabbitmq/rabbitmq-management/v3.7.14/bin/rabbitmqadmin \
   && mv rabbitmqadmin /usr/local/bin/ \
