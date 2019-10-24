@@ -116,3 +116,9 @@ load test_helper
 	run check_cmd "ssh"
 	[ "$status" -eq 0 ]
 }
+@test "hey" {
+	run check_cmd "hey"
+	[ "$status" -eq 0 ]
+	run check_cmd "ab"
+	[ "$status" -eq 0 ]
+}
