@@ -119,6 +119,4 @@ load test_helper
 @test "hey" {
 	run check_cmd "hey"
 	[ "$status" -eq 0 ]
-	run check_cmd "ab"
-	[ "$status" -eq 0 ]
 }
