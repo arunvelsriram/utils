@@ -24,7 +24,8 @@ RUN apt-get update \
     rabbitmq-server \
     python-setuptools \
     python-pip \
-    openssh-client
+    openssh-client \
+    p7zip-full
 
 RUN curl -O https://raw.githubusercontent.com/rabbitmq/rabbitmq-management/v3.7.14/bin/rabbitmqadmin \
   && mv rabbitmqadmin /usr/local/bin/ \
