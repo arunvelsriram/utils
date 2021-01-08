@@ -2,6 +2,12 @@
 
 set -e
 
+echo "Login to DockerHub"
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+echo "Build image"
 docker build -t arunvelsriram/utils -t utils-test .
+
+echo "Test image"
 bats test/test.bats
 
