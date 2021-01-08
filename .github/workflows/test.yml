@@ -26,5 +26,5 @@ jobs:
         with:
           bats-version: 1.2.1
 
-     - name: Run test
+      - name: Run test
         run: bats test/test.bats
