@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "==> Build image"
+docker build -t utils-test .
+
+echo "==> Test image"
+bats test/test.bats
+

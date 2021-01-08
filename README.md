@@ -35,8 +35,8 @@ $ exit
 
 ## Contributing
 
-Build and run tests:
+Run tests:
 
 ```
-$ ./build
+$ ./run-test
 ```
