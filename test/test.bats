@@ -3,61 +3,61 @@
 load test_helper
 
 @test "curl" {
-  run check_cmd "curl"
+  run check_cmd "curl --version"
   [ "$status" -eq 0 ]
 }
 
 @test "httpie" {
-  run check_cmd "http"
+  run check_cmd "http --version"
   [ "$status" -eq 0 ]
 }
 
 @test "dnsutils" {
-	run check_cmd "dig"
+	run check_cmd "dig -v"
 	[ "$status" -eq 0 ]
 
-	run check_cmd "nslookup"
+	run check_cmd "nslookup localhost"
 	[ "$status" -eq 0 ]
 }
 
 @test "iputils-ping" {
-	run check_cmd "ping"
+	run check_cmd "ping -V"
 	[ "$status" -eq 0 ]
 }
 
 @test "jq" {
-	run check_cmd "jq"
+	run check_cmd "jq --version"
 	[ "$status" -eq 0 ]
 }
 
 @test "mongodb-clients" {
-	run check_cmd "mongo"
+	run check_cmd "mongo --version"
 	[ "$status" -eq 0 ]
 }
 
 @test "mysql-client" {
-	run check_cmd "mysql"
+	run check_cmd "mysql --version"
 	[ "$status" -eq 0 ]
 }
 
 @test "net-tools" {
-	run check_cmd "netstat"
+	run check_cmd "netstat --version"
 	[ "$status" -eq 0 ]
 
-	run check_cmd "ifconfig"
+	run check_cmd "ifconfig --version"
 	[ "$status" -eq 0 ]
 
-	run check_cmd "route"
+	run check_cmd "route --version"
 	[ "$status" -eq 0 ]
 }
 
 @test "postgresql-client" {
-	run check_cmd "psql"
+	run check_cmd "psql --version"
 	[ "$status" -eq 0 ]
 }
 
 @test "redis-tools" {
-	run check_cmd "redis-cli"
+	run check_cmd "redis-cli --version"
 	[ "$status" -eq 0 ]
 }
 
@@ -67,62 +67,62 @@ load test_helper
 }
 
 @test "vim" {
-	run check_cmd "vim"
+	run check_cmd "vim --version"
 	[ "$status" -eq 0 ]
 }
 
 @test "influxdb-client" {
-	run check_cmd "influx"
+	run check_cmd "influx --version"
 	[ "$status" -eq 0 ]
 }
 
 @test "rabbitmq-server" {
-	run check_cmd "rabbitmqctl"
+	run check_cmd "rabbitmqctl help"
 	[ "$status" -eq 0 ]
 }
 
 @test "rabbitmqadmin" {
-	run check_cmd "rabbitmqadmin"
+	run check_cmd "rabbitmqadmin --version"
 	[ "$status" -eq 0 ]
 }
 @test "swaks" {
-	run check_cmd "swaks"
+	run check_cmd "swaks --version"
 	[ "$status" -eq 0 ]
 }
 @test "netcat-openbsd" {
-	run check_cmd "nc"
+	run check_cmd "nc -h"
 	[ "$status" -eq 0 ]
 }
 @test "wget" {
-	run check_cmd "wget"
+	run check_cmd "wget --version"
 	[ "$status" -eq 0 ]
 }
 @test "bind9-host" {
-	run check_cmd "host"
+	run check_cmd "host -V"
 	[ "$status" -eq 0 ]
 }
 
 @test "pip" {
-	run check_cmd "pip"
+	run check_cmd "pip -V"
 	[ "$status" -eq 0 ]
 }
 
 @test "cqlsh" {
-	run check_cmd "cqlsh"
+	run check_cmd "cqlsh --version"
 	[ "$status" -eq 0 ]
 }
 
 @test "ssh" {
-	run check_cmd "ssh"
+	run check_cmd "ssh -V"
 	[ "$status" -eq 0 ]
 }
 
 @test "hey" {
-	run check_cmd "hey"
+	run check_cmd "hey --help"
 	[ "$status" -eq 0 ]
 }
 
 @test "7z" {
-	run check_cmd "7z"
+	run check_cmd "7z --help"
 	[ "$status" -eq 0 ]
 }
