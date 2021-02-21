@@ -2,6 +2,18 @@
 
 load test_helper
 
+@test "utils user" {
+  run check_cmd "whoami"
+  [ "$status" -eq 0 ]
+  [ "$output" = "utils" ]
+}
+
+@test "utils user home" {
+  run check_cmd "pwd"
+  [ "$status" -eq 0 ]
+  [ "$output" = "/home/utils" ]
+}
+
 @test "curl" {
   run check_cmd "curl --version"
   [ "$status" -eq 0 ]
@@ -122,7 +134,18 @@ load test_helper
 	[ "$status" -eq 0 ]
 }
 
-@test "7z" {
+@test "archive and compression" {
 	run check_cmd "7z --help"
 	[ "$status" -eq 0 ]
+
+	run check_cmd "tar --version"
+	[ "$status" -eq 0 ]
+
+	run check_cmd "xz --version"
+	[ "$status" -eq 0 ]
+}
+
+@test "gbupg" {
+  run check_cmd "gpg --version"
+  [ "$status" -eq 0 ]
 }
