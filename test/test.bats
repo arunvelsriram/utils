@@ -145,7 +145,7 @@ load test_helper
 	[ "$status" -eq 0 ]
 }
 
-@test "gbupg" {
+@test "gnupg" {
   run check_cmd "gpg --version"
   [ "$status" -eq 0 ]
 }
