@@ -154,3 +154,8 @@ load test_helper
   run check_cmd "kafkacat -V"
   [ "$status" -eq 0 ]
 }
+
+@test "kaf" {
+  run check_cmd "kaf help"
+  [ "$status" -eq 0 ]
+}

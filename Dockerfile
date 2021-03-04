@@ -53,6 +53,8 @@ RUN curl -s -O https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64 \
   && mv hey_linux_amd64 /usr/local/bin/hey \
   && chmod +x /usr/local/bin/hey
 
+RUN curl -s https://raw.githubusercontent.com/birdayz/kaf/master/godownloader.sh | BINDIR=/usr/local/bin bash
+
 # Locale setup
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
