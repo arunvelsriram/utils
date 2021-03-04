@@ -149,3 +149,8 @@ load test_helper
   run check_cmd "gpg --version"
   [ "$status" -eq 0 ]
 }
+
+@test "kafkacat" {
+  run check_cmd "kafkacat -V"
+  [ "$status" -eq 0 ]
+}
