@@ -9,7 +9,7 @@ When using containers you might want to test the connectivity between the contai
 For example, to run a one-off container in Kubernetes:
 
 ```
-kubectl run --rm utils -it --generator=run-pod/v1 --image arunvelsriram/utils bash
+kubectl run --rm utils -it --image arunvelsriram/utils bash
 
 # You will be seeing a bash prompt
 $ psql -h hostname -U test -d test
