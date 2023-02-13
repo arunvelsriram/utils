@@ -2,6 +2,7 @@ FROM ubuntu:bionic
 
 ARG UTILS_USER_GID=1000
 ARG UTILS_USER_UID=1000
+ARG RABBITMQ_VERSION=3.11.9
 
 RUN apt-get update \
   && apt-get install --no-install-recommends --yes --force-yes \
@@ -34,16 +35,17 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # RabbitMQ tools
-RUN curl -fsSL https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc | apt-key add - \
- && echo "deb https://dl.bintray.com/rabbitmq-erlang/debian bionic erlang-23.x" > /etc/apt/sources.list.d/bintray.rabbitmq.list \
+RUN curl -1sLf "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xf77f1eda57ebb1cc" | gpg --dearmor | tee /usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg > /dev/null \
+ && echo 'deb [signed-by=/usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg] http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu bionic main' >> /etc/apt/sources.list.d/rabbitmq.list \
+ && echo 'deb-src [signed-by=/usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg] http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu bionic main' >> /etc/apt/sources.list.d/rabbitmq.list \
  && apt-get update \
- && apt-get install --no-install-recommends --yes --force-yes erlang-base \
- && wget -q -O rabbitmq.tar.xz https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.12/rabbitmq-server-generic-unix-3.8.12.tar.xz \
+ && apt-get install --no-install-recommends --yes --force-yes erlang-base erlang-asn1 erlang-crypto erlang-eldap erlang-ftp erlang-inets erlang-mnesia erlang-os-mon erlang-parsetools erlang-public-key erlang-runtime-tools erlang-snmp erlang-ssl erlang-syntax-tools erlang-tftp erlang-tools erlang-xmerl \
+ && wget -q -O rabbitmq.tar.xz https://github.com/rabbitmq/rabbitmq-server/releases/download/v${RABBITMQ_VERSION}/rabbitmq-server-generic-unix-${RABBITMQ_VERSION}.tar.xz \
  && tar xf rabbitmq.tar.xz \
  && rm rabbitmq.tar.xz \
  && mv rabbitmq*/ /usr/local/rabbitmq
 ENV PATH="$PATH:/usr/local/rabbitmq/sbin"
-RUN curl -s -O https://raw.githubusercontent.com/rabbitmq/rabbitmq-management/v3.7.14/bin/rabbitmqadmin \
+RUN curl -s -O https://raw.githubusercontent.com/rabbitmq/rabbitmq-server/v${RABBITMQ_VERSION}/deps/rabbitmq_management/bin/rabbitmqadmin \
   && mv rabbitmqadmin /usr/local/bin/ \
   && chmod +x /usr/local/bin/rabbitmqadmin
 
