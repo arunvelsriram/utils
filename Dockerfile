@@ -5,7 +5,7 @@ ARG UTILS_USER_UID=1000
 ARG RABBITMQ_VERSION=3.11.9
 
 RUN apt-get update \
-  && apt-get install --no-install-recommends --yes --force-yes \
+  && apt-get install --no-install-recommends --yes \
     locales \
     bind9-host \
     curl \
@@ -39,7 +39,8 @@ RUN curl -1sLf "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xf77f1eda
  && echo 'deb [signed-by=/usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg] http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu bionic main' >> /etc/apt/sources.list.d/rabbitmq.list \
  && echo 'deb-src [signed-by=/usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg] http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu bionic main' >> /etc/apt/sources.list.d/rabbitmq.list \
  && apt-get update \
- && apt-get install --no-install-recommends --yes --force-yes erlang-base erlang-asn1 erlang-crypto erlang-eldap erlang-ftp erlang-inets erlang-mnesia erlang-os-mon erlang-parsetools erlang-public-key erlang-runtime-tools erlang-snmp erlang-ssl erlang-syntax-tools erlang-tftp erlang-tools erlang-xmerl \
+ && apt-get install --no-install-recommends --yes erlang-base erlang-asn1 erlang-crypto erlang-eldap erlang-ftp erlang-inets erlang-mnesia erlang-os-mon erlang-parsetools erlang-public-key erlang-runtime-tools erlang-snmp erlang-ssl erlang-syntax-tools erlang-tftp erlang-tools erlang-xmerl \
+ && rm -rf /var/lib/apt/lists/* \
  && wget -q -O rabbitmq.tar.xz https://github.com/rabbitmq/rabbitmq-server/releases/download/v${RABBITMQ_VERSION}/rabbitmq-server-generic-unix-${RABBITMQ_VERSION}.tar.xz \
  && tar xf rabbitmq.tar.xz \
  && rm rabbitmq.tar.xz \
