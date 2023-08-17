@@ -25,8 +25,8 @@ RUN apt-get update \
     nano \
     wget \
     influxdb-client \
-    python-setuptools \
-    python-pip \
+    python3-setuptools \
+    python3-pip \
     openssh-client \
     p7zip-full \
     xz-utils \
@@ -50,7 +50,7 @@ RUN curl -s -O https://raw.githubusercontent.com/rabbitmq/rabbitmq-server/v${RAB
   && mv rabbitmqadmin /usr/local/bin/ \
   && chmod +x /usr/local/bin/rabbitmqadmin
 
-RUN pip -q install cqlsh
+RUN pip3 install cqlsh
 
 RUN curl -s -O https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64 \
   && mv hey_linux_amd64 /usr/local/bin/hey \

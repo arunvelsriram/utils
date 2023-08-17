@@ -115,7 +115,7 @@ load test_helper
 }
 
 @test "pip" {
-	run check_cmd "pip -V"
+	run check_cmd "pip3 -V"
 	[ "$status" -eq 0 ]
 }
 
