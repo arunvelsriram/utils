@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  main:
+  check-linux-amd64-image:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -20,13 +20,7 @@ jobs:
         with:
           bats-version: 1.2.1
 
-      - name: Login to DockerHub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Build test linux/amd64 Docker image
+      - name: Build test Docker image
         uses: docker/build-push-action@v4
         with:
           push: false
@@ -34,12 +28,60 @@ jobs:
           tags: utils-test:linux-amd64
           platforms: linux/amd64
 
-      - name: Run test for linux/amd64 image
+      - name: Run tests
         run: UTILS_TEST_IMAGE='utils-test:linux-amd64' bats test/test.bats
 
-      - name: Build and push production Docker image
+  check-linux-arm64-image:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Install bats
+        uses: mig4/setup-bats@v1
+        with:
+          bats-version: 1.2.1
+
+      - name: Build test Docker image
+        uses: docker/build-push-action@v4
+        with:
+          push: false
+          load: true
+          tags: utils-test:linux-arm64
+          platforms: linux/arm64
+
+      - name: Run tests
+        run: UTILS_TEST_IMAGE='utils-test:linux-arm64' bats test/test.bats
+
+  publish-production-image:
+    runs-on: ubuntu-20.04
+    needs: [check-linux-amd64-image, check-linux-arm64-image]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push production Docker images
         if: ${{ github.ref == 'refs/heads/master' }}
         uses: docker/build-push-action@v2
         with:
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: arunvelsriram/utils:latest
