@@ -18,7 +18,7 @@ jobs:
       - name: Install bats
         uses: mig4/setup-bats@v1
         with:
-          bats-version: 1.2.1
+          bats-version: 1.10.0
 
       - name: Build test Docker image
         uses: docker/build-push-action@v4
@@ -46,7 +46,7 @@ jobs:
       - name: Install bats
         uses: mig4/setup-bats@v1
         with:
-          bats-version: 1.2.1
+          bats-version: 1.10.0
 
       - name: Build test Docker image
         uses: docker/build-push-action@v4
