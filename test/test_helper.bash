@@ -1,3 +1,4 @@
 function check_cmd() {
-  docker run --rm utils-test bash -c "$@"
+  UTILS_TEST_IMAGE=${UTILS_TEST_IMAGE:=utils-test}
+  docker run --rm ${UTILS_TEST_IMAGE} bash -c "$@"
 }

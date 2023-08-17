@@ -26,16 +26,16 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build test Docker image
+      - name: Build test linux/amd64 Docker image
         uses: docker/build-push-action@v4
         with:
           push: false
           load: true
-          tags: utils-test-darwin-amd64
+          tags: utils-test:linux-amd64
           platforms: linux/amd64
 
-      - name: Run test
-        run: bats test/test.bats
+      - name: Run test for linux/amd64 image
+        run: UTILS_TEST_IMAGE='utils-test:linux-amd64' bats test/test.bats
 
       - name: Build and push production Docker image
         if: ${{ github.ref == 'refs/heads/master' }}
