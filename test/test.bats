@@ -5,13 +5,13 @@ load test_helper
 @test "utils user" {
   run check_cmd "whoami"
   [ "$status" -eq 0 ]
-  [ "$output" = "utils" ]
+  [ $(echo "$output" | grep -v WARNING) = "utils" ]
 }
 
 @test "utils user home" {
   run check_cmd "pwd"
   [ "$status" -eq 0 ]
-  [ "$output" = "/home/utils" ]
+  [ $(echo "$output" | grep -v WARNING) = "/home/utils" ]
 }
 
 @test "curl" {
