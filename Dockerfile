@@ -32,6 +32,7 @@ RUN apt-get update \
     xz-utils \
     gnupg2 \
     kafkacat \
+    tcpdump \
   && rm -rf /var/lib/apt/lists/*
 
 # RabbitMQ tools

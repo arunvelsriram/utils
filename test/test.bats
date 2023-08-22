@@ -159,3 +159,8 @@ load test_helper
   run check_cmd "kaf help"
   [ "$status" -eq 0 ]
 }
+
+@test "tcpdump" {
+  run check_cmd "tcpdump --version"
+  [ "$status" -eq 0 ]
+}
