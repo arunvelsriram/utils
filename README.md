@@ -18,6 +18,14 @@ $ psql -h hostname -U test -d test
 $ exit
 ```
 
+Using a Kubernetes Deployment:
+
+```
+kubectl create deploy utils --image=arunvelsriram/utils --replicas=1 -- sleep infinity
+
+kubectl exec -it deploy/utils -- bash
+```
+
 **Note:** `--rm` option will delete the  `pod` after exiting from the container
 
 ## General Usage
