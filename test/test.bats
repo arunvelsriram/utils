@@ -42,8 +42,8 @@ load test_helper
 	[ "$status" -eq 0 ]
 }
 
-@test "mongodb-clients" {
-	run check_cmd "mongo --version"
+@test "mongosh" {
+	run check_cmd "mongosh --version"
 	[ "$status" -eq 0 ]
 }
 
