@@ -164,3 +164,8 @@ load test_helper
   run check_cmd "tcpdump --version"
   [ "$status" -eq 0 ]
 }
+
+@test "ngrep" {
+  run check_cmd "ngrep -V"
+  [ "$status" -eq 0 ]
+}
