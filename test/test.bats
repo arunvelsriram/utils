@@ -169,3 +169,8 @@ load test_helper
   run check_cmd "ngrep -V"
   [ "$status" -eq 0 ]
 }
+
+@test "nmap" {
+  run check_cmd "nmap --version"
+  [ "$status" -eq 0 ]
+}

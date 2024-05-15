@@ -33,6 +33,7 @@ RUN apt-get update \
     kafkacat \
     tcpdump \
     ngrep \
+    nmap \
   && rm -rf /var/lib/apt/lists/*
 
 RUN echo "Erlang PPA setup" \
