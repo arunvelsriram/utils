@@ -174,3 +174,7 @@ load test_helper
   run check_cmd "nmap --version"
   [ "$status" -eq 0 ]
 }
+@test "sngrep" {
+  run check_cmd "sngrep --version"
+  [ "$status" -eq 0 ]
+}

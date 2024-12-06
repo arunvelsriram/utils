@@ -34,6 +34,7 @@ RUN apt-get update \
     tcpdump \
     ngrep \
     nmap \
+    sngrep \
   && rm -rf /var/lib/apt/lists/*
 
 RUN echo "Erlang PPA setup" \
