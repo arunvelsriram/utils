@@ -151,7 +151,7 @@ load test_helper
 }
 
 @test "kafkacat" {
-  run check_cmd "kafkacat -V"
+  run check_cmd "kcat -V"
   [ "$status" -eq 0 ]
 }
 
