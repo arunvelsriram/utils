@@ -67,9 +67,9 @@ RUN curl -s https://raw.githubusercontent.com/birdayz/kaf/master/godownloader.sh
 
 # Locale setup
 RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
 
 # Unprivileged user setup
 RUN groupadd --gid ${UTILS_USER_GID} utils \
