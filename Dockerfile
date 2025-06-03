@@ -60,9 +60,8 @@ RUN curl -s -O https://raw.githubusercontent.com/rabbitmq/rabbitmq-server/v${RAB
   && mv rabbitmqadmin /usr/local/bin/ \
   && chmod +x /usr/local/bin/rabbitmqadmin
 
-RUN curl -s -O https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64 \
-  && mv hey_linux_amd64 /usr/local/bin/hey \
-  && chmod +x /usr/local/bin/hey
+RUN wget -qO /usr/local/bin/oha https://github.com/hatoo/oha/releases/download/v1.8.0/oha-linux-amd64  \
+&& chmod +x /usr/local/bin/oha
 
 RUN curl -s https://raw.githubusercontent.com/birdayz/kaf/master/godownloader.sh | BINDIR=/usr/local/bin bash
 
@@ -80,5 +79,5 @@ USER utils
 WORKDIR /home/utils
 
 # Install Python packages under the unprivileged user
-RUN pipx install cqlsh
 ENV PATH="$PATH:/home/utils/.local/bin"
+RUN pipx install cqlsh

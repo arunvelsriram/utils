@@ -129,8 +129,8 @@ load test_helper
 	[ "$status" -eq 0 ]
 }
 
-@test "hey" {
-	run check_cmd "hey --help"
+@test "oha" {
+	run check_cmd "oha --version"
 	[ "$status" -eq 0 ]
 }
 
