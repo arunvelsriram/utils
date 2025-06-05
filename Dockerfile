@@ -35,6 +35,8 @@ RUN apt-get update \
     ngrep \
     nmap \
     sngrep \
+    iproute2 \
+    iptables \
   && rm -rf /var/lib/apt/lists/*
 
 # Erlang and MongoDB Shell setup

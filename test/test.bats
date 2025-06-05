@@ -58,8 +58,15 @@ load test_helper
 
 	run check_cmd "ifconfig --version"
 	[ "$status" -eq 0 ]
+}
 
-	run check_cmd "route --version"
+@test "iproute2" {
+	run check_cmd "ip -V"
+	[ "$status" -eq 0 ]
+}
+
+@test "iptables" {
+	run check_cmd "iptables -V"
 	[ "$status" -eq 0 ]
 }
 
