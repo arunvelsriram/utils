@@ -43,7 +43,14 @@ $ exit
 
 ## Contributing
 
-Run tests:
+### Required tools
+
+- Docker
+- bats-core `brew install bats-core`
+- bats-support `brew install bats-core/bats-core/bats-support`
+- bats-assert `brew install bats-core/bats-core/bats-assert`
+
+### Run tests
 
 ```
 $ ./run-test

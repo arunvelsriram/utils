@@ -6,5 +6,5 @@ echo "==> Build image"
 docker build -t utils-test .
 
 echo "==> Test image"
+export BATS_LIB_PATH=$(brew --prefix)/lib
 bats test/test.bats
-

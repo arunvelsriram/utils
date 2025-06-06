@@ -11,7 +11,7 @@ load test_helper
 @test "utils user home" {
   run check_cmd "pwd"
   [ "$status" -eq 0 ]
-  [ $(echo "$output" | grep -v WARNING) = "/home/utils" ]
+  assert_output "/home/utils"
 }
 
 @test "curl" {
