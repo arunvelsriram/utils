@@ -28,8 +28,6 @@ jobs:
         uses: bats-core/bats-action@3.0.0
 
       - name: Run tests
-        env:
-          BATS_LIB_PATH: ${{ steps.setup-bats.outputs.lib-path }}
         run: UTILS_TEST_IMAGE='utils-test:linux-amd64' bats test/test.bats
 
   check-linux-arm64-image:
@@ -57,8 +55,6 @@ jobs:
         uses: bats-core/bats-action@3.0.0
 
       - name: Run tests
-        env:
-          BATS_LIB_PATH: ${{ steps.setup-bats.outputs.lib-path }}
         run: UTILS_TEST_IMAGE='utils-test:linux-arm64' bats test/test.bats
 
   publish-production-image:
