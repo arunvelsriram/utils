@@ -1,6 +1,9 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  pull_request:
+  push:
+    branches: [main]
 
 jobs:
   check-linux-amd64-image:
@@ -31,6 +34,7 @@ jobs:
         run: UTILS_TEST_IMAGE='utils-test:linux-amd64' bats test/test.bats
         env:
           BATS_LIB_PATH: ${{ steps.setup-bats.outputs.lib-path }}
+          DOCKER_DEFAULT_PLATFORM: linux/amd64
 
   check-linux-arm64-image:
     runs-on: ubuntu-latest
@@ -60,6 +64,7 @@ jobs:
         run: UTILS_TEST_IMAGE='utils-test:linux-arm64' bats test/test.bats
         env:
           BATS_LIB_PATH: ${{ steps.setup-bats.outputs.lib-path }}
+          DOCKER_DEFAULT_PLATFORM: linux/arm64
 
   publish-production-image:
     runs-on: ubuntu-latest
