@@ -4,6 +4,7 @@ on:
   pull_request:
   push:
     branches: [master]
+    tags: ['v*']
 
 jobs:
   check-linux-amd64-image:
